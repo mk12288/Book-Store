@@ -1,0 +1,242 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="overlay-nav">
+        <i class="fa-solid fa-book"></i>
+      <div class="navbar-links">
+        <div class="nav-items">
+          <a href="Home.html">Home</a>
+          <a href="book-details.html">Book Details</a>
+          <a href="cart.html">Cart</a>
+          <a href="login.html">Login</a>
+          <a href="about.html">About Us</a>
+        </div>
+      </div>
+    </nav>
+
+    <!--Book Details-->
+    <h1 class="title">Book Details</h1>
+
+    <!--Search Bar-->
+        <form onsubmit="searchBooks(); return false;">
+            <input type="text" id="searchBox" placeholder="Search books...">
+  
+        </form>
+        <p id="noResult" style="color: red; font-weight: bold; display: none;">No results found.</p>
+
+    <!--Book images-->
+      <div id="bookList">
+          <!--image 1-->
+            <div class="container">
+                <div class="book">
+                     <img class="box1" src="https://cdn.kobo.com/book-images/7098c07c-90e0-44a0-b29b-52c3acad575d/1200/1200/False/a-p-j-abdul-kalam-a-life.jpg">
+                      <h3>APJ Abdul Kalam A Life</h3>
+                      <p>by <span class="author">Arun Diwari (Author)</span></p>
+                       <p class="price">
+                       ₹<span class="big">299</span>
+                        <span class="small"><s>₹500</s></span></p>                  
+                       <button onclick="addToCart('APJ Abdul Kalam A Life ', 299, 'https://cdn.kobo.com/book-images/7098c07c-90e0-44a0-b29b-52c3acad575d/1200/1200/False/a-p-j-abdul-kalam-a-life.jpg')">Add to Cart</button>
+                </div>
+
+
+                <div class="book">
+                      <img class="box1" src="https://m.media-amazon.com/images/I/91qopMsumTL._SY425_.jpg">
+                      <h3>The Foresighted Ambedkar</h3>
+                      <p>by <span class="author"> Anurag Bhaskar(Author)</span></p>
+                      <p class="price">
+                      ₹<span class="big">499</span>
+                      <span class="small"><s>₹799</s></span><br></p>
+                      <button onclick="addToCart('The Foresighted Ambedkar ', 499, 'https://m.media-amazon.com/images/I/91qopMsumTL._SY425_.jpg')">Add to Cart</button>
+                </div>
+
+                <div class="book">
+                      <img class="box1" src="https://m.media-amazon.com/images/I/715qi-cIbML._SY466_.jpg">
+                      <h3>Don't Believe Everything You Think</h3>
+                      <p>by <span class="author"> Joseph Nguyen (Author)</span></p>
+                      <p class="price">
+                      ₹<span class="big">163</span>
+                      <span class="small"><s>₹299</s></span><br></p>
+                      <button onclick="addToCart('Dont Believe Everything You Think ', 163, 'https://m.media-amazon.com/images/I/715qi-cIbML._SY466_.jpg')">Add to Cart</button>
+                 </div>
+
+                 <div class="book">
+                        <img class="box1" src="https://m.media-amazon.com/images/I/712K3sdLlRL._SY466_.jpg">
+                        <h3>Dopamine Detox</h3>
+                        <p>by <span class="author"> Thibaut Meurisse (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">181</span>
+                        <span class="small"><s>₹245</s></span><br></p>
+                        <button onclick="addToCart('Dopamine Detox ', 181, 'https://m.media-amazon.com/images/I/712K3sdLlRL._SY466_.jpg')">Add to Cart</button>
+                 </div>
+        
+
+                <div class="book">
+                        <img class="box1" src="https://m.media-amazon.com/images/I/41f1KlSQqNL._SX342_SY445_.jpg">
+                        <h3>The Power of Your Subconscious Mind</h3>
+                        <p>by <span class="author"> Joseph Murphy (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">99</span>
+                        <span class="small"><s>₹199</s></span><br></p>
+                        <button onclick="addToCart('The Power of Your Subconscious Mind ', 99, 'https://m.media-amazon.com/images/I/41f1KlSQqNL._SX342_SY445_.jpg')">Add to Cart</button>
+                </div>
+
+                <div class="book">
+                        <img class="box1" src="https://m.media-amazon.com/images/I/514fD3oqIFL._SX342_SY445_.jpg">
+                        <h3>You Can </h3>
+                        <p>by <span class="author"> George Matthew Adams (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">98</span>
+                        <span class="small"><s>₹149</s></span><br></p>
+                        <button onclick="addToCart('You Can ', 98, 'https://m.media-amazon.com/images/I/514fD3oqIFL._SX342_SY445_.jpg')">Add to Cart</button>
+                 </div>
+
+                <div class="book">
+                         <img class="box1" src="https://m.media-amazon.com/images/I/71FUaywnETL._AC_UY327_FMwebp_QL65_.jpg">
+                        <h3>Three Men In A Boat </h3>
+                        <p>by <span class="author"> Jerome K. Jerome (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">132</span>
+                        <span class="small"><s>₹199</s></span><br></p>
+                        <button onclick="addToCart('Three Men In A Boat  ', 132, 'https://m.media-amazon.com/images/I/71FUaywnETL._AC_UY327_FMwebp_QL65_.jpg')">Add to Cart</button>
+               </div>
+
+               <div class="book">
+                        <img class="box1" src="https://m.media-amazon.com/images/I/51t6idcdvZL._SY445_SX342_.jpg">
+                        <h3>History of Indian Cinema </h3>
+                        <p>by <span class="author">  Renu Saran (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">272</span>
+                        <span class="small"><s>₹400</s></span><br></p>
+                        <button onclick="addToCart('History of Indian Cinema  ', 272, 'https://m.media-amazon.com/images/I/51t6idcdvZL._SY445_SX342_.jpg')">Add to Cart</button>
+               </div>
+
+              <div class="book">
+                         <img class="box1" src="https://m.media-amazon.com/images/I/816W8cGsjuL._SY466_.jpg">
+                        <h3>Kamal Haasan: A Cinematic Journey  </h3>
+                        <p>by <span class="author">  Krishnan Hariharan (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">427</span>
+                        <span class="small"><s>₹699</s></span><br></p>
+                        <button onclick="addToCart('Kamal Haasan: A Cinematic Journey  ', 427, 'https://m.media-amazon.com/images/I/816W8cGsjuL._SY466_.jpg')">Add to Cart</button>
+              </div>
+
+               <div class="book">
+                         <img class="box1" src="https://m.media-amazon.com/images/I/414-Vuc+rkL._SY445_SX342_.jpg">
+                        <h3>Journey of Souls</h3>
+                        <p>by <span class="author">  Michael Newton (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">271</span>
+                        <span class="small"><s>₹399</s></span><br></p>
+                        <button onclick="addToCart('Journey of Souls  ', 271, 'https://m.media-amazon.com/images/I/414-Vuc+rkL._SY445_SX342_.jpg')">Add to Cart</button>
+                </div>
+
+              <div class="book">
+                        <img class="box1" src="https://m.media-amazon.com/images/I/81JzLW+TEoL._SY466_.jpg">
+                        <h3>Take Charge of Your Life </h3>
+                        <p>by <span class="author"> Indranil Mitra (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">351</span>
+                        <span class="small"><s>₹495</s></span><br></p>
+                        <button onclick="addToCart('Take Charge of Your Life  ', 351, 'https://m.media-amazon.com/images/I/81JzLW+TEoL._SY466_.jpg')">Add to Cart</button>
+              </div>
+
+              <div class="book">
+                        <img class="box1" src="https://m.media-amazon.com/images/I/91oFzkzICbL._SY522_.jpg">
+                        <h3>Archangel's Resurrection</h3>
+                        <p>by <span class="author">  Nalini Singh (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">511</span>
+                        <span class="small"><s>₹999</s></span><br></p>
+                        <button onclick="addToCart('Archangels Resurrection ', 511, 'https://m.media-amazon.com/images/I/91oFzkzICbL._SY522_.jpg')">Add to Cart</button>
+                </div>
+
+                 <div class="book">
+                        <img class="box1" src="https://m.media-amazon.com/images/I/51Yngd0TjFS._SX342_SY445_.jpg">
+                        <h3>Think and Grow Rich  </h3>
+                        <p>by <span class="author">  Napoleon Hill (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">379</span>
+                        <span class="small"><s>₹599</s></span><br></p>
+                        <button onclick="addToCart('Think and Grow Rich ', 379, 'https://m.media-amazon.com/images/I/51Yngd0TjFS._SX342_SY445_.jpg')">Add to Cart</button>
+                </div>
+
+               <div class="book">
+                       <img class="box1" src="https://m.media-amazon.com/images/I/513RYecvl9L._SX342_SY445_.jpg">
+                        <h3>Indian Economy Courseware </h3>
+                        <p>by <span class="author"> RAMESH SINGH (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">491</span>
+                        <span class="small"><s>₹725</s></span><br></p>
+                        <button onclick="addToCart('TIndian Economy Courseware', 491, 'https://m.media-amazon.com/images/I/513RYecvl9L._SX342_SY445_.jpg')">Add to Cart</button>
+                          </p>
+                </div>
+
+                <div class="book">
+                        <img class="box1" src="https://m.media-amazon.com/images/I/41EpHt1J7-L._SX342_SY445_.jpg">
+                        <h3>The Secret(Tamil) </h3>
+                        <p>by <span class="author">  Rhonda Byrne (Author)</span></p>
+                        <p class="price">
+                        ₹<span class="big">279</span>
+                        <span class="small"><s>₹499</s></span><br></p>
+                        <button onclick="addToCart('The Secret(Tamil)', 279, 'https://m.media-amazon.com/images/I/41EpHt1J7-L._SX342_SY445_.jpg')">Add to Cart</button>
+
+                </div>
+          </div>
+    </div>
+</div>
+
+</body>
+<script>
+
+// Search Box 
+
+  function searchBooks() {
+    const input = document.getElementById("searchBox").value.toLowerCase();
+    const books = document.querySelectorAll("#bookList .book");
+    const noResult = document.getElementById("noResult");
+    let found = false;
+
+    books.forEach(book => {
+      const title = book.querySelector("h3").textContent.toLowerCase();
+      const author = book.querySelector(".author").textContent.toLowerCase();
+
+      // Check if title or author starts with the input
+      if (title.startsWith(input) || author.startsWith(input)) {
+        book.style.display = "block";
+        found = true;
+      } else {
+        book.style.display = "none";
+      }
+    });
+
+    noResult.style.display = found ? "none" : "block";
+  }
+
+
+  // cart Button 
+  function addtoCart() {
+    window.location.href = "cart.html";
+  }
+
+  // Payment 
+  function addToCart(title, price, image) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ title, price, image });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.href = "cart.html";
+  }
+</script>
+
+
+
+</body>
+</html>

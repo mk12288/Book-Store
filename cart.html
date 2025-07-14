@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+    .cart-item img {
+      width: 100px;
+      height: auto;
+      margin-right: 15px;
+    }
+    .cart-details {
+      flex: 1;
+    }
+    .cart-price {
+      font-weight: bold;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    .pay-button, .refresh-button {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    .pay-button {
+      background-color: green;
+      color: white;
+    }
+    .refresh-button {
+      background-color: orange;
+      color: white;
+    }
+  </style>
+
+  <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+          <!--Navbar-->
+             <nav class="overlay-nav">
+               <i class="fa-solid fa-book"></i>
+                  <div class="navbar-links">
+                      <div class="nav-items">
+                          <a href="Home.html">Home</a>
+                          <a href="book-details.html">Book Details</a>
+                          <a href="cart.html">Cart</a>
+                          <a href="login.html">Login</a>
+                          <a href="about.html">About Us</a>
+                     </div>
+                </div>
+            </nav>
+    <br><br>
+
+    <!--cart intro-->
+          <h1>🛒 My Cart</h1>
+              <div id="cartItems"></div>
+                  <p id="totalPrice" style="font-weight: bold; margin-top: 10px;"></p>
+
+          <div class="buttons">
+                <button class="refresh-button" onclick="refreshCart()">🔁 Refresh Cart</button>
+                 <button class="pay-button" onclick="goToPayment()">💳 Proceed to Payment</button>
+          </div>
+
+  <script>
+    function displayCart() {
+      //get all elements
+      const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartContainer = document.getElementById("cartItems");
+      const totalPriceElement = document.getElementById("totalPrice");
+      const payButton = document.querySelector(".pay-button");
+
+      let total = 0;
+      cartContainer.innerHTML = ""; // Clear previous items
+
+      //check cart are added or not
+      if (cartItems.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        if (payButton) payButton.style.display = "none";
+        if (totalPriceElement) totalPriceElement.style.display = "none";
+        return;
+      }
+
+      cartItems.forEach(item => {
+        total += item.price;
+
+        //<img> – shows the book's image.
+        //<h3> – shows the book title.
+        //<p> – shows the book price.
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "cart-item";
+        itemDiv.innerHTML = `
+          <img src="${item.image}" alt="${item.title}">  
+          <div class="cart-details">
+            <h3>${item.title}</h3>
+            <p class="cart-price">₹${item.price}</p>
+          </div>
+        `;
+        cartContainer.appendChild(itemDiv);
+      });
+
+      //price calculation
+      totalPriceElement.style.display = "block";
+      totalPriceElement.textContent = `Total: ₹${total}`;
+      payButton.style.display = "inline-block";
+    }
+
+    function refreshCart() {
+      if (confirm("Are you sure you want to clear your cart?")) {
+        localStorage.removeItem("cart");
+        displayCart();
+      }
+    }
+
+    function goToPayment() {
+      window.location.href = "payment.html";
+    }
+
+    // Load cart items when the page loads
+    window.onload = displayCart;
+  </script>
+</body>
+</html>
